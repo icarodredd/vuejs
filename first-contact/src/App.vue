@@ -9,7 +9,7 @@ const someClass = 'someClass'
     <p>hello world from vue!</p>
     <p>this is a number: {{ one }}</p>
     <p>someHtml: <span v-html="someHtml"></span></p>
-    <p :id="someClass">My class is: {{ someClass }}</p>
+    <p :class="someClass">My class is: {{ someClass }}</p>
   </main>
 </template>
 
