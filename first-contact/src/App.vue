@@ -6,6 +6,7 @@ const someHtml = "<span style='color: red'>This should be red.</span>"
 const someClass = 'someClass'
 const buttonIsDisabled = true
 const count = ref(1)
+const isActive = true
 
 const multipleAttributes = {
   id: 'randomId',
@@ -44,6 +45,7 @@ function onSubmit() {
     </form>
     <button @click="count++">Click to increment: {{ count }}</button>
     <p>{{ getFirstBook }}</p>
+    <p :class="{ active: isActive }"></p>
   </main>
 </template>
 
