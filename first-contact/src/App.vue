@@ -7,6 +7,13 @@ const someClass = 'someClass'
 const buttonIsDisabled = true
 const count = ref(1)
 const isActive = true
+const color = ref('green')
+
+const changeColor = () => {
+  return color.value === 'green'
+    ? (color.value = 'red')
+    : (color.value = 'green')
+}
 
 const multipleAttributes = {
   id: 'randomId',
@@ -46,6 +53,10 @@ function onSubmit() {
     <button @click="count++">Click to increment: {{ count }}</button>
     <p>{{ getFirstBook }}</p>
     <p :class="{ active: isActive }"></p>
+    <!-- binding styles -->
+    <button @click="changeColor()" :style="{ 'background-color': color }">
+      Click to change my color
+    </button>
   </main>
 </template>
 
