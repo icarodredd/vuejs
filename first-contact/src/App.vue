@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 
 const one = 1
 const someHtml = "<span style='color: red'>This should be red.</span>"
@@ -11,6 +11,17 @@ const multipleAttributes = {
   id: 'randomId',
   style: 'background-color:green',
 }
+
+const author = ref({
+  name: 'John Doe',
+  books: [
+    'Vue 2 - Advanced Guide',
+    'Vue 3 - Basic Guide',
+    'Vue 4 - The Mystery',
+  ],
+})
+
+const getFirstBook = computed(() => author.value.books[0])
 
 function onSubmit() {
   console.log('submitted!')
@@ -32,6 +43,7 @@ function onSubmit() {
       <button type="submit">Submit</button>
     </form>
     <button @click="count++">Click to increment: {{ count }}</button>
+    <p>{{ getFirstBook }}</p>
   </main>
 </template>
 
