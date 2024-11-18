@@ -9,6 +9,7 @@ const count = ref(1)
 const isActive = true
 const color = ref('green')
 const fruits = ['Banana', 'Apple', 'Orange']
+const checked = ref(false)
 
 const changeColor = () => {
   return color.value === 'green'
@@ -75,6 +76,8 @@ function warn(message, event) {
     <button @click="warn('Form cannot be submitted yet.', $event)">
       Submit
     </button>
+    <input type="checkbox" id="checkbox" v-model="checked" />
+    <label for="checkbox">{{ checked }}</label>
   </main>
 </template>
 
