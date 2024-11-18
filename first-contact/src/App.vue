@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { onMounted } from 'vue'
+import { watch } from 'vue'
 
 const one = 1
 const someHtml = "<span style='color: red'>This should be red.</span>"
@@ -11,10 +12,17 @@ const isActive = true
 const color = ref('green')
 const fruits = ['Banana', 'Apple', 'Orange']
 const checked = ref(false)
+const watchedValue = ref('')
 
 onMounted(() => {
   console.log(`the component is now mounted.`)
 })
+
+watch(watchedValue, (newValue, oldValue) =>
+  console.log(
+    'watchedValue is now ' + newValue + ' the old value is ' + oldValue,
+  ),
+)
 
 const changeColor = () => {
   return color.value === 'green'
@@ -83,6 +91,7 @@ function warn(message, event) {
     </button>
     <input type="checkbox" id="checkbox" v-model="checked" />
     <label for="checkbox">{{ checked }}</label>
+    <input v-model="watchedValue" type="text" />
   </main>
 </template>
 
