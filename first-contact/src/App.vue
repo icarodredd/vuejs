@@ -8,6 +8,7 @@ const buttonIsDisabled = true
 const count = ref(1)
 const isActive = true
 const color = ref('green')
+const fruits = ['Banana', 'Apple', 'Orange']
 
 const changeColor = () => {
   return color.value === 'green'
@@ -58,6 +59,11 @@ function onSubmit() {
       Click to change my color
     </button>
     <button v-if="isActive"></button>
+    <ol>
+      <li :key="fruit" v-for="fruit in fruits">
+        {{ fruit }}
+      </li>
+    </ol>
   </main>
 </template>
 
