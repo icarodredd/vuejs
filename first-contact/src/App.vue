@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import { onMounted } from 'vue'
 
 const one = 1
 const someHtml = "<span style='color: red'>This should be red.</span>"
@@ -10,6 +11,10 @@ const isActive = true
 const color = ref('green')
 const fruits = ['Banana', 'Apple', 'Orange']
 const checked = ref(false)
+
+onMounted(() => {
+  console.log(`the component is now mounted.`)
+})
 
 const changeColor = () => {
   return color.value === 'green'
