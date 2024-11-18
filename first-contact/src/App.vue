@@ -35,6 +35,14 @@ const getFirstBook = computed(() => author.value.books[0])
 function onSubmit() {
   console.log('submitted!')
 }
+
+function warn(message, event) {
+  // now we have access to the native event
+  if (event) {
+    event.preventDefault()
+  }
+  alert(message)
+}
 </script>
 
 <template>
@@ -64,6 +72,9 @@ function onSubmit() {
         {{ fruit }}
       </li>
     </ol>
+    <button @click="warn('Form cannot be submitted yet.', $event)">
+      Submit
+    </button>
   </main>
 </template>
 
