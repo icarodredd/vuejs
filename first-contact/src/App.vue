@@ -57,6 +57,7 @@ function onSubmit() {
     <button @click="changeColor()" :style="{ 'background-color': color }">
       Click to change my color
     </button>
+    <button v-if="isActive"></button>
   </main>
 </template>
 
